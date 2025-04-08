@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ' road'
   - obstacle
+  - barrier
   layers:
   - Default
   - TransparentFX
