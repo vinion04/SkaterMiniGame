@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleController : MonoBehaviour
+public class ObstacleSpawner : MonoBehaviour
 {
     public List<GameObject> obstacles = new List<GameObject>();
     private int randomObstaclesIndex;
@@ -14,6 +14,7 @@ public class ObstacleController : MonoBehaviour
     private float secondLaneY = -1.3f;
     private float thirdLaneY = -.4f;
     private float fourthLaneY = -2f;
+    public float xPosition = 10f;  //change to off screen when done
 
     private float timeBetweenSpawn = 3f;
     private float spawnTime = 5f;
