@@ -18,12 +18,12 @@ public class ObstacleMover : MonoBehaviour
         rb.velocity = new Vector2(-moveSpeed, 0);    //move obstacle
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)     //if collide with barrier, destroy
     {
         if(other.tag == "back barrier")
         {
             Destroy(this.gameObject);
-            Debug.Log("Collided w barrier");
+            Debug.Log("Destroyed");
         }
     }
 

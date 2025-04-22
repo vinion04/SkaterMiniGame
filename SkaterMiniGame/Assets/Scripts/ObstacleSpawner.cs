@@ -19,12 +19,16 @@ public class ObstacleSpawner : MonoBehaviour
     private float timeBetweenSpawn = 3f;
     private float spawnTime = 5f;
 
+    public PlayerController playerController;
+
     void Start()
     {
         lanes.Add(firstLaneY);
         lanes.Add(secondLaneY);
         lanes.Add(thirdLaneY);
         lanes.Add(fourthLaneY);
+
+        playerController.gameOver.AddListener(StopSpawner);    //subscribe to game over event
     }
 
     void Update()
@@ -52,6 +56,11 @@ public class ObstacleSpawner : MonoBehaviour
             Instantiate(randomObstacle, transform.position + new Vector3(10f, randomLane, 0f), transform.rotation);
 
         Debug.Log("Instantiating " + randomObstacle.name);
+    }
+
+    void StopSpawner()
+    {
+        this.enabled = false;
     }
 
 }
