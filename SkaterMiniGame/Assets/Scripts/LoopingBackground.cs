@@ -9,10 +9,12 @@ public class LoopingBackground : MonoBehaviour
     public SpriteRenderer backgroundRenderer;
 
     public PlayerController playerController;
+    public GameManager gameManager;
 
     void Start()
     {
         playerController.gameOver.AddListener(StopLoop);    //subscribe to game over event
+        gameManager.speedUp.AddListener(SpeedUp);
     }
 
     void Update()
@@ -23,6 +25,11 @@ public class LoopingBackground : MonoBehaviour
 
     void StopLoop()
     {
-        this.enabled = false;
+        this.enabled = false;   //stops road
+    }
+
+    void SpeedUp()
+    {
+        backgroundSpeed += .1f;
     }
 }

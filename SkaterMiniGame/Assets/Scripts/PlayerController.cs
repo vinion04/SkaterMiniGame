@@ -9,13 +9,13 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f;
 
-    public UnityEvent gameOver;
+    public UnityEvent gameOver;     //event for game over tasks
     public Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();    //get player rigidbody
-        gameOver.AddListener(StopAnimation);
+        gameOver.AddListener(StopPlayer);
     }
 
     void Update()
@@ -34,9 +34,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void StopAnimation()
+    void StopPlayer()
     {
         animator.enabled = false;   //stop animating player
+        rb.velocity = Vector3.zero; //stop moving player
     }
 
 
