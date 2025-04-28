@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     private bool isTimerGoing;
     private float currTime;
 
+    void Awake()
+    {
+        //singleton
+    }
+
     void Start()
     {
         endGameCanvas.enabled = false;

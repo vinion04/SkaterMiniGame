@@ -30,6 +30,6 @@ public class LoopingBackground : MonoBehaviour
 
     void SpeedUp()
     {
-        backgroundSpeed += .1f;
+        backgroundSpeed += .05f;
     }
 }

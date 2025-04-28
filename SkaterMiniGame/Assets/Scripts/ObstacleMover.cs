@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class ObstacleMover : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
+    public GameManager gameManager;
 
-    public float moveSpeed = 5f;
+    public float moveSpeed = 5.3f; 
 
-    public GameManager gameManager; //this needs to be in the prefabs somehow it wont stay
-
-    void Awake()
+    public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();    //get obstacle rigidbody
     }
 
-    void Start()
+    public void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameManager.speedUp.AddListener(SpeedUp);
     }
 
-    void Update()
+     void Update()
     {
         rb.velocity = new Vector2(-moveSpeed, 0);    //move obstacle
     }
@@ -34,9 +34,9 @@ public class ObstacleMover : MonoBehaviour
         }
     }
 
-    void SpeedUp()
+    public void SpeedUp()
     {
-        moveSpeed += 2f;
+        moveSpeed += 4.3f;
     }
 
 }

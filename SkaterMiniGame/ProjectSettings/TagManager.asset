@@ -6,8 +6,9 @@ TagManager:
   tags:
   - ' road'
   - obstacle
-  - barrier
   - back barrier
+  - top barrier
+  - bottom barrier
   layers:
   - Default
   - TransparentFX
