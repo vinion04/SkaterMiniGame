@@ -7,7 +7,7 @@ public class ObstacleMover : MonoBehaviour
     public Rigidbody2D rb;
     public GameManager gameManager;
 
-    public float moveSpeed = 5.3f; 
+    public float moveSpeed = 5f; 
 
     public void Awake()
     {
@@ -30,13 +30,12 @@ public class ObstacleMover : MonoBehaviour
         if(other.tag == "back barrier")
         {
             Destroy(this.gameObject);
-            Debug.Log("Destroyed");
         }
     }
 
     public void SpeedUp()
     {
-        moveSpeed += 4.3f;
+        moveSpeed += 3f;
     }
 
 }

@@ -8,14 +8,16 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     public float moveSpeed = 5f;
-
+    public GameManager gameManager;
     public UnityEvent gameOver;     //event for game over tasks
     public Animator animator;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();    //get player rigidbody
-        gameOver.AddListener(StopPlayer);
+        gameOver.AddListener(StopPlayer);   //subscribe to game over event
+        gameManager.winGame.AddListener(StopPlayer);    //subscribe to win event
     }
 
     void Update()

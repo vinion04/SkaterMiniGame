@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
-public class GameOverManager : MainMenu
+public class GameOverManager : MonoBehaviour
 {
+
+    public GameManager gameManager;
+    public PlayerController playerController;
 
     private Button playBtn;
     private Button quitBtn;
@@ -17,5 +21,26 @@ public class GameOverManager : MainMenu
 
         playBtn.onClick.AddListener(OnPlay);    //play game on button click
         quitBtn.onClick.AddListener(OnQuit);    //quit game on button click
+
+        playerController.gameOver.AddListener(DisplayWin);    //subscribe to win game event
+    }
+
+    public void OnPlay()
+    {
+        SceneManager.LoadScene("Level");
+    }
+
+    public void OnQuit()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game!");
+    }
+
+    void DisplayWin()
+    {
+        GameObject timerObject = GameObject.Find("EndTimerTxt");
+
+        TextMeshProUGUI timerTxt = timerObject.GetComponent<TextMeshProUGUI>();
+        timerTxt.text = string.Format("you made it: {0:0.0} seconds", gameManager.currTime);
     }
 }

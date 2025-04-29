@@ -16,11 +16,12 @@ public class ObstacleSpawner : MonoBehaviour
     private float fourthLaneY = -2f;
     public float xPosition = 15f;
 
-    private float timeBetweenSpawn = 1f;
+    private float timeBetweenSpawn = 2f;
     private float spawnTime = 3f;
 
     public PlayerController playerController;
     public GameManager gameManager;
+
 
     void Start()
     {
@@ -30,7 +31,8 @@ public class ObstacleSpawner : MonoBehaviour
         lanes.Add(fourthLaneY);
 
         playerController.gameOver.AddListener(StopSpawner);    //subscribe to game over event
-        gameManager.speedUp.AddListener(SpeedUp);
+        gameManager.winGame.AddListener(StopSpawner);          //subscribe to win game event
+        gameManager.speedUp.AddListener(SpeedUp);              //subscribe to speed up event
     }   
 
     void Update()
@@ -57,12 +59,12 @@ public class ObstacleSpawner : MonoBehaviour
         else
             Instantiate(randomObstacle, transform.position + new Vector3(10f, randomLane, 0f), transform.rotation);
 
-        Debug.Log("Instantiating " + randomObstacle.name);
     }
 
     void StopSpawner()
     {
         this.enabled = false;
+        //will need to reset timer for second try to get that delay at the beginning
     }
 
     void SpeedUp()

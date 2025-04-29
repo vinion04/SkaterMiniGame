@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class LoopingBackground : MonoBehaviour
 {
-    private float backgroundSpeed = 0.3f;   //slow to start
+    private float backgroundSpeed = 0.25f;   //slow to start
     public SpriteRenderer backgroundRenderer;
 
     public PlayerController playerController;
@@ -14,7 +14,8 @@ public class LoopingBackground : MonoBehaviour
     void Start()
     {
         playerController.gameOver.AddListener(StopLoop);    //subscribe to game over event
-        gameManager.speedUp.AddListener(SpeedUp);
+        gameManager.winGame.AddListener(StopLoop);          //subscript to win event
+        gameManager.speedUp.AddListener(SpeedUp);           //subscribe to speed up event
     }
 
     void Update()
@@ -30,6 +31,6 @@ public class LoopingBackground : MonoBehaviour
 
     void SpeedUp()
     {
-        backgroundSpeed += .05f;
+        backgroundSpeed += .025f;
     }
 }

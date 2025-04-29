@@ -17,12 +17,10 @@ public class TireController : ObstacleMover
         if(other.tag == "top barrier" || other.tag == "bottom barrier")
         {
             verticalMoveSpeed = -1 * verticalMoveSpeed;
-            Debug.Log("Tire hit barrier, reversed direction");
         }
         else if(other.tag == "back barrier")
         {
             Destroy(this.gameObject);
-            Debug.Log("Destroyed");
         }
     }
 
