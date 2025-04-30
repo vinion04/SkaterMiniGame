@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ObstacleMover : MonoBehaviour
 {
+    /*
+        - moves obstacles (faster based on time played)
+        - destroys objects when game over
+        - destorys objects when they hit the back barrier
+    */
     public Rigidbody2D rb;
 
     public GameManager gameManager;             //lots of references

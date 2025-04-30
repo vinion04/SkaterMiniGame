@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
+    /*
+        - handles obstacle spawning lanes
+        - manages rate of spawning
+        - stops spawning on end game
+    */
     public List<GameObject> obstacles = new List<GameObject>(); //list of obstacles
     private int randomObstaclesIndex;
 

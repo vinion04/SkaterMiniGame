@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TireController : ObstacleMover     //child of obstacle mover cuz there's lots in common
 {
+    /*
+        - mostly same as tire and raccoon obstacles
+        - bounces up and down across road
+    */
 
     public float verticalMoveSpeed = 5f;    //up and down speed
 

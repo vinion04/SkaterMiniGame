@@ -5,6 +5,10 @@ using UnityEngine.Events;
 
 public class LoopingBackground : MonoBehaviour
 {
+    /*
+        - loops the background based on time played
+        - stops loop on event
+    */
     private float backgroundSpeed = 0.25f;   //slow to start
     public SpriteRenderer backgroundRenderer;
 

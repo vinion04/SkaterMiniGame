@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour
 {
+    /*
+        - plays the car crash sound effect
+        - shows text based on key input
+        - loads scene based on key input
+    */
     public TextMeshProUGUI dialogueTextBox; //references to text boxes
     public TextMeshProUGUI enterTextBox;
 

@@ -8,6 +8,9 @@ using UnityEngine.Events;
 
 public class GameOverManager : MonoBehaviour
 {
+    /*
+        - manages game over screen and buttons based on a game over event
+    */
 
     public GameManager gameManager; //references for events
     public PlayerController playerController;
@@ -25,7 +28,7 @@ public class GameOverManager : MonoBehaviour
         playBtn.onClick.AddListener(OnPlay);    //play game on button click
         quitBtn.onClick.AddListener(OnQuit);    //quit game on button click
 
-        playerController.gameOver.AddListener(DisplayWin);    //subscribe to win game event
+        playerController.gameOver.AddListener(DisplayLose);    //subscribe to win game event
     }
 
     public void OnPlay()
@@ -40,7 +43,7 @@ public class GameOverManager : MonoBehaviour
         Debug.Log("Quit Game!");
     }
 
-    void DisplayWin()
+    void DisplayLose()
     {
         GameObject timerObject = GameObject.Find("EndTimerTxt");    //find the text
 

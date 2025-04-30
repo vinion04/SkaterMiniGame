@@ -4,10 +4,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 
-// WOULD LOVE TO ADD:
-// whatever object pooling is
-// character falling animation after being hit
-// CLEANER CODE
+/* 
+    - manages the current time for obstacle movement
+    - manages win/lose canvases
+    - updates the timer on screen
+*/
 
 public class GameManager : MonoBehaviour
 {

@@ -6,7 +6,10 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-
+    /*
+        - manages main menu buttons
+        - loads story scene on play
+    */
     private Button playBtn; //button references
     private Button quitBtn;
 

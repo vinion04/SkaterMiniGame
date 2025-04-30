@@ -5,6 +5,11 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
+    /*
+        - moves the player based on vertical key input
+        - if collide with obstacle, end game
+        - stop the player movement after end game
+    */
     private Rigidbody2D rb;
 
     public float moveSpeed = 5f;    //starting move speed
