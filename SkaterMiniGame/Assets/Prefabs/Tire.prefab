@@ -163,5 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   gameManager: {fileID: 0}
+  playerController: {fileID: 0}
   moveSpeed: 5
   verticalMoveSpeed: 5

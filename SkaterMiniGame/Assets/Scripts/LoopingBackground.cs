@@ -15,22 +15,18 @@ public class LoopingBackground : MonoBehaviour
     {
         playerController.gameOver.AddListener(StopLoop);    //subscribe to game over event
         gameManager.winGame.AddListener(StopLoop);          //subscript to win event
-        gameManager.speedUp.AddListener(SpeedUp);           //subscribe to speed up event
     }
 
     void Update()
     {
         //USED FROM TUTORIAL
         backgroundRenderer.material.mainTextureOffset += new Vector2(backgroundSpeed * Time.deltaTime, 0f);
+
+        backgroundSpeed += .000001f * GameManager.CurrentSpeed;
     }
 
     void StopLoop()
     {
         this.enabled = false;   //stops road
-    }
-
-    void SpeedUp()
-    {
-        backgroundSpeed += .025f;
     }
 }

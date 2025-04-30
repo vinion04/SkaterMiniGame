@@ -9,7 +9,7 @@ public class TireController : ObstacleMover
 
     void Update()
     {
-        rb.velocity = new Vector2(-moveSpeed, verticalMoveSpeed);
+        rb.velocity = new Vector2(-GameManager.CurrentSpeed, verticalMoveSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D other)

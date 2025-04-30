@@ -801,7 +801,6 @@ GameObject:
   m_Component:
   - component: {fileID: 318951263}
   - component: {fileID: 318951262}
-  - component: {fileID: 318951264}
   m_Layer: 0
   m_Name: Sky
   m_TagString: Untagged
@@ -876,21 +875,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1310398524}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &318951264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318951260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc19dbefc3ea3b14c90fe9aa138c7160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundRenderer: {fileID: 318951262}
-  playerController: {fileID: 2033723438}
-  gameManager: {fileID: 1175052704}
 --- !u!1 &330797439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,8 +1649,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5d5e132bafe52a146bdbb6fc3a25c012, type: 2}
+  m_sharedMaterial: {fileID: 2839855051017892532, guid: 5d5e132bafe52a146bdbb6fc3a25c012, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2144,6 +2128,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1175052704}
   playerController: {fileID: 2033723438}
+  reset:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &933507028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2188,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Win!
+  m_text: You Made It!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62c3f205335856041861235f038af2ed, type: 2}
   m_sharedMaterial: {fileID: 3508810133710495443, guid: 62c3f205335856041861235f038af2ed, type: 2}
@@ -2387,7 +2374,7 @@ MonoBehaviour:
   - {fileID: 5754070002206704822, guid: e484473f0044c9047a72e9fbfe051476, type: 3}
   - {fileID: 6796237008631489541, guid: dbd5d825178d3f9479135e19917c2ff1, type: 3}
   - {fileID: 8948893345259726909, guid: 393ffe044a48b0444b61da9ad9ee9c0e, type: 3}
-  xPosition: 10
+  xPosition: 20
   playerController: {fileID: 2033723438}
   gameManager: {fileID: 1175052704}
 --- !u!4 &1175052703
@@ -2422,12 +2409,11 @@ MonoBehaviour:
   playerController: {fileID: 2033723438}
   timerTxt: {fileID: 555932325}
   currTime: 0
-  speedUp:
-    m_PersistentCalls:
-      m_Calls: []
   winGame:
     m_PersistentCalls:
       m_Calls: []
+  maxSpeed: 10
+  duration: 60
 --- !u!1 &1310398523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,6 +2557,134 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1498660041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1498660043}
+  - component: {fileID: 1498660042}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1498660042
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498660041}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 98201b69267a6714fb6caaaa3aae01ab, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 91e9423774546714ab6bab8e5dd4ace4, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1498660043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498660041}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 481.94937, y: 238.1976, z: -2.9573717}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1528589699
 GameObject:
   m_ObjectHideFlags: 0
@@ -2682,6 +2796,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1175052704}
   playerController: {fileID: 2033723438}
+  reset:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1719557479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3435,3 +3552,4 @@ SceneRoots:
   - {fileID: 1310398524}
   - {fileID: 597746253}
   - {fileID: 348545556}
+  - {fileID: 1498660043}

@@ -4,12 +4,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 
-//TODO:
-// object pooling
-// stop collisions with player after they win
-// smooth speeding up
-// make raccoon
-// add story
+// WOULD LOVE TO ADD:
+// whatever object pooling is
+// character falling animation after being hit
+// CLEANER CODE
 
 public class GameManager : MonoBehaviour
 {
@@ -19,11 +17,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timerTxt;
     public float currTime;
 
-    public UnityEvent speedUp;  //event to speed up the level
     public UnityEvent winGame;
 
     private bool isTimerGoing;
     private float endTime = 60f;
+
+    public float maxSpeed = 25f;
+    public float duration = 60f;
+
+    public static float CurrentSpeed { get; private set;}
 
     void Awake()
     {
@@ -37,12 +39,14 @@ public class GameManager : MonoBehaviour
         playerController.gameOver.AddListener(StartEndGame);
 
         isTimerGoing = true;
-
-        StartCoroutine(SpeedUp());
     }
 
     void Update()
     {
+
+        float t = Mathf.Clamp01(Time.timeSinceLevelLoad / duration);
+        CurrentSpeed = Mathf.Lerp(5f, maxSpeed, t);
+
         if(isTimerGoing)
         {
             currTime += Time.deltaTime;
@@ -66,21 +70,12 @@ public class GameManager : MonoBehaviour
     void UpdateTimerDisplay(float currTime)
     {
         timerTxt.text = string.Format("{0:0.0}", currTime);
-    }
 
-    IEnumerator SpeedUp()
-    {
-        if(currTime < endTime)
-        {
-            yield return new WaitForSeconds(20f);
-            speedUp.Invoke();
-            Debug.Log("Speeding up");
-            StartCoroutine(SpeedUp());
-        }
-        else
+        if(currTime >= endTime)
         {
             winGame.Invoke();
             winCanvas.enabled = true;
         }
     }
+
 }

@@ -6,8 +6,8 @@ public class ObstacleMover : MonoBehaviour
 {
     public Rigidbody2D rb;
     public GameManager gameManager;
-
-    public float moveSpeed = 5f; 
+    public PlayerController playerController;
+    public GameOverManager gameOverManager;
 
     public void Awake()
     {
@@ -16,13 +16,11 @@ public class ObstacleMover : MonoBehaviour
 
     public void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        gameManager.speedUp.AddListener(SpeedUp);
-    }
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
-     void Update()
-    {
-        rb.velocity = new Vector2(-moveSpeed, 0);    //move obstacle
+        playerController.gameOver.AddListener(EndGame);
+
+        rb.velocity = new Vector2(-GameManager.CurrentSpeed, 0);
     }
 
     void OnTriggerEnter2D(Collider2D other)     //if collide with barrier, destroy
@@ -33,9 +31,9 @@ public class ObstacleMover : MonoBehaviour
         }
     }
 
-    public void SpeedUp()
+    void EndGame()
     {
-        moveSpeed += 3f;
+        Destroy(this.gameObject);
     }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameOverManager : MonoBehaviour
 
     private Button playBtn;
     private Button quitBtn;
+
+    public UnityEvent reset;
 
     void Start()
     {
@@ -27,7 +30,8 @@ public class GameOverManager : MonoBehaviour
 
     public void OnPlay()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        reset.Invoke();
     }
 
     public void OnQuit()

@@ -260,7 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   gameManager: {fileID: 0}
-  moveSpeed: 5
+  playerController: {fileID: 0}
+  moveSpeed: 6
 --- !u!1 &6054688831732369065
 GameObject:
   m_ObjectHideFlags: 0

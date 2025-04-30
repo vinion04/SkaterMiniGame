@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnPlay()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("Story");
     }
 
     public void OnQuit()

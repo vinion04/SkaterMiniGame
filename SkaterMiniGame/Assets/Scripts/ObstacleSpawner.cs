@@ -17,7 +17,7 @@ public class ObstacleSpawner : MonoBehaviour
     public float xPosition = 15f;
 
     private float timeBetweenSpawn = 2f;
-    private float spawnTime = 3f;
+    private float spawnTime = 2f;
 
     public PlayerController playerController;
     public GameManager gameManager;
@@ -32,7 +32,6 @@ public class ObstacleSpawner : MonoBehaviour
 
         playerController.gameOver.AddListener(StopSpawner);    //subscribe to game over event
         gameManager.winGame.AddListener(StopSpawner);          //subscribe to win game event
-        gameManager.speedUp.AddListener(SpeedUp);              //subscribe to speed up event
     }   
 
     void Update()
@@ -65,11 +64,6 @@ public class ObstacleSpawner : MonoBehaviour
     {
         this.enabled = false;
         //will need to reset timer for second try to get that delay at the beginning
-    }
-
-    void SpeedUp()
-    {
-        spawnTime += 2f;
     }
 
 }
