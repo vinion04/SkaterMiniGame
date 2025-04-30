@@ -8,7 +8,7 @@ public class LoopingBackground : MonoBehaviour
     private float backgroundSpeed = 0.25f;   //slow to start
     public SpriteRenderer backgroundRenderer;
 
-    public PlayerController playerController;
+    public PlayerController playerController;   //references for events
     public GameManager gameManager;
 
     void Start()
@@ -19,10 +19,9 @@ public class LoopingBackground : MonoBehaviour
 
     void Update()
     {
-        //USED FROM TUTORIAL
         backgroundRenderer.material.mainTextureOffset += new Vector2(backgroundSpeed * Time.deltaTime, 0f);
 
-        backgroundSpeed += .000001f * GameManager.CurrentSpeed;
+        backgroundSpeed += .000001f * GameManager.CurrentSpeed; //some crazy stuff i did to increment the speed of the road
     }
 
     void StopLoop()

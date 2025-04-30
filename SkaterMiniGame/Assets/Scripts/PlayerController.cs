@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    public float moveSpeed = 5f;
-    public GameManager gameManager;
+    public float moveSpeed = 5f;    //starting move speed
+
+    public GameManager gameManager; //to subscribe to event
+
     public UnityEvent gameOver;     //event for game over tasks
-    public Animator animator;
+    public Animator animator;       //to stop player animation when end game
 
 
     void Start()

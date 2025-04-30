@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
 
-    private Button playBtn;
+    private Button playBtn; //button references
     private Button quitBtn;
 
     void Start()
@@ -21,12 +21,12 @@ public class MainMenu : MonoBehaviour
 
     public void OnPlay()
     {
-        SceneManager.LoadScene("Story");
+        SceneManager.LoadScene("Story");    //load next scene "story"
     }
 
     public void OnQuit()
     {
-        Application.Quit();
+        Application.Quit(); //quit application
         Debug.Log("Quit Game!");
     }
 }

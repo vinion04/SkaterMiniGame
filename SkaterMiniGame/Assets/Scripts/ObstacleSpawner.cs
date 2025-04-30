@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public List<GameObject> obstacles = new List<GameObject>();
+    public List<GameObject> obstacles = new List<GameObject>(); //list of obstacles
     private int randomObstaclesIndex;
 
-    private List<float> lanes = new List<float>();
+    private List<float> lanes = new List<float>();  //list to store and randomize spawn lanes
     private int randomLanesIndex;
 
     private float firstLaneY = 2.9f;        //where obstacles spawn
     private float secondLaneY = -1.3f;
     private float thirdLaneY = -.4f;
     private float fourthLaneY = -2f;
-    public float xPosition = 15f;
+    public float xPosition;
 
-    private float timeBetweenSpawn = 2f;
-    private float spawnTime = 2f;
+    private float timeBetweenSpawn = 1f;    //time inbetween spawning objects
+    private float spawnTime = 0f;   //time before spawn
 
     public PlayerController playerController;
     public GameManager gameManager;
@@ -25,7 +25,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     void Start()
     {
-        lanes.Add(firstLaneY);
+        lanes.Add(firstLaneY);  //add lanes
         lanes.Add(secondLaneY);
         lanes.Add(thirdLaneY);
         lanes.Add(fourthLaneY);
@@ -36,10 +36,10 @@ public class ObstacleSpawner : MonoBehaviour
 
     void Update()
     {
-        if(Time.time > spawnTime)
+        if(Time.time > spawnTime)   //if time is greater than spawn time
         {
             Spawn();
-            spawnTime = Time.time + timeBetweenSpawn;
+            spawnTime = Time.time + timeBetweenSpawn;   //update spawn time with time between spawn
         }
     }
 
@@ -48,8 +48,8 @@ public class ObstacleSpawner : MonoBehaviour
         randomObstaclesIndex = Random.Range(0, obstacles.Count);    //chooses a random obstacle
         randomLanesIndex = Random.Range(0, lanes.Count);            //chooses a random lane
 
-        float randomLane = lanes[randomLanesIndex];
-        GameObject randomObstacle = obstacles[randomObstaclesIndex];
+        float randomLane = lanes[randomLanesIndex];     //get the random lane
+        GameObject randomObstacle = obstacles[randomObstaclesIndex];    //get random obstacle
 
         if(randomObstacle.name == "Raccoon" || randomObstacle.name == "Tire")
         {
@@ -62,8 +62,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     void StopSpawner()
     {
-        this.enabled = false;
-        //will need to reset timer for second try to get that delay at the beginning
+        this.enabled = false;   //to stop spawning after end game
     }
 
 }
